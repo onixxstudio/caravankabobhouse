@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"> <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+  /* Only keeping Font Family declarations as they cannot be done via Tailwind CDN without a config file */
+  .font-plus { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .font-serif-play { font-family: 'Playfair Display', serif; }
+</style>
+<body>
+    <div class=" ">
+        <!-- header -->
+        <div class="bg-[#001528] flex gap-10 flex-col relative">
+        
+          <nav class="relative z-50 text-white transition-all duration-1000 ease-out">
+            <div class="h-[10vh] flex justify-center items-end relative">
+            <div >
+                <h1 class="maintext text-3xl mb-4 uppercase leading-none text-center -[bounce_3s_infinite_alternate] brightness-125">
+                    Caravan Kabob House
+                </h1>
+            </div>
+            <div class="absolute h-[1px] w-[91.99%] bg-[#FFD99F] opacity-30"></div>
+            <div class="absolute h-[1px] w-[93.5%] bg-[#FFD99F]"></div>
+        </div>
+    
+        <div class="relative h-[9vh] flex justify-center">
+            <div class="w-[94%] items-center flex justify-between leading-[30px] text-[18px] text-white">
+                
+                <div class="hidden md:flex items-center gap-10 w-[50%]">
+                    <a href="./index.html" class="cursor-pointer hover:text-[#FFD99F] transition-colors duration-300 relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FFD99F] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="./about.html" class="cursor-pointer hover:text-[#FFD99F] transition-colors duration-300 relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FFD99F] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="./menu.html" class="cursor-pointer hover:text-[#FFD99F] transition-colors duration-300 relative group">
+                        Menu
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FFD99F] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="./contact.html" class="cursor-pointer hover:text-[#FFD99F] transition-colors duration-300 relative group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FFD99F] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+    
+                <div class="md:hidden font-serif text-[#FFD99F] text-xl font-bold">
+                    <a href="./index.html">
+
+                        <img src="./public/images/caravanlogo.png" width="70px" alt="" >
+                    </a>
+                </div>
+    
+                <div class="flex items-center gap-6">
+                    <button class="hidden sm:block px-6 py-2 rounded-full border border-[#FFD99F] text-[#FFD99F] hover:bg-[#FFD99F] hover:text-[#1B2D1F] transition-all duration-500 transform hover:scale-105 active:scale-95 whitespace-nowrap">
+                        <a href="./menu.html">Menu</a>
+                    </button>
+    
+                    <button onclick="toggleMenu()" class="md:hidden flex flex-col gap-1.5 z-[100] relative p-2">
+                        <span id="line1" class="w-8 h-0.5 bg-[#FFD99F] transition-all duration-300 origin-center"></span>
+                        <span id="line2" class="w-8 h-0.5 bg-[#FFD99F] transition-all duration-300"></span>
+                        <span id="line3" class="w-8 h-0.5 bg-[#FFD99F] transition-all duration-300 origin-center"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div id="mobileMenu" class="fixed inset-0 bg-[#1B2D1F] z-[90] flex flex-col items-center justify-center gap-8 text-2xl font-serif translate-x-full transition-transform duration-500 ease-in-out">
+            <a href="./index.html" class="mobile-link opacity-0 hover:text-[#FFD99F] transition-all">Home</a>
+            <a href="./about.html" class="mobile-link opacity-0 hover:text-[#FFD99F] transition-all">About</a>
+            <a href="./menu.html" class="mobile-link opacity-0 hover:text-[#FFD99F] transition-all">Menu</a>
+            <a href="./contact.html" class="mobile-link opacity-0 hover:text-[#FFD99F] transition-all">Contact</a>
+            <button class="mt-4 px-8 py-3 rounded-full border border-[#FFD99F] text-[#FFD99F] mobile-link opacity-0">
+                <a href="./menu.html">Menu</a>
+            </button>
+        </div>
+    </nav>
+
+    
+          <div class="flex items-center flex-col font-serif justify-center px-4">
+            <h1 class="maintext text-[clamp(7vh,9vw,9vw)] mt-6 uppercase leading-none text-center animate-[bounce_3s_infinite_alternate] brightness-125">
+                Our Menu 
+            </h1>
+            
+        
+        </div>
+
+        <div class="flex justify-center mt-12 px-4 pb-20">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-full max-w-[94%] gap-6 items-end">
+                
+                <div class="opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards] group">
+                    <div class="bg-[#FFF4DE] h-[30vh] md:h-[35vh] rounded-t-full overflow-hidden transition-all duration-700 group-hover:-translate-y-6 group-hover:rotate-1 shadow-xl">
+                        <img src="./public/images/img1.avif" class="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" />
+                    </div>
+                </div>
+
+                <div class="opacity-0 animate-[fadeInUp_0.8s_ease-out_0.8s_forwards] group">
+                    <div class="bg-[#FFF4DE] h-[35vh] md:h-[42vh] rounded-t-full overflow-hidden transition-all duration-700 group-hover:-translate-y-6 group-hover:-rotate-1 shadow-xl">
+                        <img src="./public/images/img2.avif" class="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" />
+                    </div>
+                </div>
+
+                <div class="opacity-0 animate-[fadeInUp_0.8s_ease-out_1s_forwards] group">
+                    <div class="bg-[#FFF4DE] h-[40vh] md:h-[50vh] rounded-t-full border-[1px] border-[#FFD99F]/20 overflow-hidden transition-all duration-700 group-hover:-translate-y-10 shadow-2xl">
+                        <img src="./public/images/img3.avif" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                    </div>
+                </div>
+
+                <div class="opacity-0 animate-[fadeInUp_0.8s_ease-out_1.2s_forwards] group">
+                    <div class="bg-[#FFF4DE] h-[35vh] md:h-[42vh] rounded-t-full overflow-hidden transition-all duration-700 group-hover:-translate-y-6 group-hover:rotate-1 shadow-xl">
+                        <img src="./public/images/img4.avif" class="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" />
+                    </div>
+                </div>
+
+                <div class="opacity-0 animate-[fadeInUp_0.8s_ease-out_1.4s_forwards] group">
+                    <div class="bg-[#FFF4DE] h-[30vh] md:h-[35vh] rounded-t-full overflow-hidden transition-all duration-700 group-hover:-translate-y-6 group-hover:-rotate-1 shadow-xl">
+                        <img src="./public/images/img5.avif" class="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    
+        </div>
+<!-- header end -->
+
+<!-- menu -->
+
+
+<!-- menu start -->
+
+
+    <style>
+
+        :root {
+
+            --cream: #FDF7E7;
+
+            --orange: #001527;
+
+            --navy: #001527;
+
+            --stone: #78716c;
+
+        }
+
+        
+
+        body { 
+
+            font-family: 'Inter', sans-serif; 
+
+            background-color: var(--cream); 
+
+            color: var(--navy);
+
+            scroll-behavior: smooth;
+
+        }
+
+        
+
+        .serif { font-family: 'Lora', serif; }
+
+        
+
+        [x-cloak] { display: none !important; }
+
+
+
+        /* Custom Scrollbar */
+
+        .custom-scrollbar::-webkit-scrollbar { height: 3px; }
+
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 10px; }
+
+
+
+        /* Card Hover Animations */
+
+        .menu-card {
+
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+            border: 1px solid rgba(11, 28, 42, 0.05);
+
+        }
+
+        .menu-card:hover {
+
+            transform: translateY(-8px) scale(1.01);
+
+            box-shadow: 0 20px 25px -5px rgba(11, 28, 42, 0.1), 0 10px 10px -5px rgba(11, 28, 42, 0.04);
+
+            border-color: var(--orange);
+
+        }
+
+
+
+        /* Underline Animation */
+
+        .nav-btn { position: relative; }
+
+        .nav-btn::after {
+
+            content: '';
+
+            position: absolute;
+
+            bottom: -2px;
+
+            left: 0;
+
+            width: 0;
+
+            height: 2px;
+
+            background: var(--orange);
+
+            transition: width 0.3s ease;
+
+        }
+
+        .nav-btn.active::after { width: 100%; }
+
+    </style>
+
+<main x-data="{ activeSection: 'mains', loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
+
+
+
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200">
+
+        <div class="max-w-6xl mx-auto px-6 py-5">
+
+            <div class="flex justify-between items-center mb-6">
+
+                <div class="flex flex-col">
+
+                    <!-- <h1 class="serif text-3xl font-bold tracking-tighter text-[#0B1C2A]">
+
+                        Caravan Kabob House
+
+                    </h1> -->
+
+                    <!-- <div class="h-1 w-12 bg-[#C2410C] mt-1 rounded-full"></div> -->
+
+                </div>
+
+                
+
+            </div>
+
+            
+
+            <nav class="flex gap-8 overflow-x-auto custom-scrollbar pb-3 no-scrollbar text-xs font-bold uppercase tracking-widest">
+
+                <button @click="activeSection = 'mains'" :class="activeSection === 'mains' ? 'text-[#C2410C] active' : 'opacity-40 hover:opacity-100'" class="nav-btn pb-1 transition-all duration-300">Mains</button>
+
+                <button @click="activeSection = 'platters'" :class="activeSection === 'platters' ? 'text-[#C2410C] active' : 'opacity-40 hover:opacity-100'" class="nav-btn pb-1 transition-all duration-300">Platters</button>
+
+                <button @click="activeSection = 'wraps'" :class="activeSection === 'wraps' ? 'text-[#C2410C] active' : 'opacity-40 hover:opacity-100'" class="nav-btn pb-1 transition-all duration-300">Wraps</button>
+
+                <button @click="activeSection = 'others'" :class="activeSection === 'others' ? 'text-[#C2410C] active' : 'opacity-40 hover:opacity-100'" class="nav-btn pb-1 transition-all duration-300">Sides & Drinks</button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <main class="max-w-6xl mx-auto px-6 py-12" x-show="loaded" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-0 translate-y-10">
+
+
+
+        <section x-show="activeSection === 'mains'" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 scale-95">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <template x-for="(item, index) in [
+
+                    {title: 'CHICKEN BREAST DINNER', price: '$25.99', desc: 'Tender cubes of boneless chicken breast seasoned with our special mild house spices and grilled to perfection.', img:'./public/images/chickenbrest.png' },
+
+                    {title: 'TANDOORI DINNER', price: '$25.99', desc: 'Tender cubes of boneless chicken marinated in yogurt, seasoned with spicy tandoori masala.', img:'./public/images/tandoori.png'},
+
+                    {title: 'TIKKA DINNER', price: '$27.99', desc: 'Beef tenderloin cubes marinated in our specialty mild house seasoning.', img:'./public/images/tikka.png'},
+
+                    {title: 'CHICKEN CHAPLEE DINNER', price: '$24.99', desc: 'Ground chicken patties, green chilies, fresh mint and coriander leaves plus our spicy house specialty spices.', img:'./public/images/chaplee.png'},
+
+                    {title: 'CHAPLEE DINNER', price: '$25.99', desc: 'Minced beef patty, green chilies, egg, fresh mint and coriander leaves plus our spicy house specialty spices.',img:'./public/images/chaplee2.png'},
+
+                    {title: 'WAZERI DINNER', price: '$30.99', desc: 'Combination of chicken breast skewer and kofta kabob skewer prepared with house spices (mild).', img:'./public/images/wazeri.png'},
+
+                    {title: 'SULTANI DINNER', price: '$32.99', desc: 'Combination of beef tenderloin skewer and kofta kabob skewer prepared with our house specialty spices.', img:'./public/images/sultani.png'},
+
+                    {title: 'TANDOORI KOFTA DINNER', price: '$28.99', desc: 'Combination of spicy tandoori chicken breast with ground beef skewer. Includes Salad & Naan.',img:'./public/images/kofta.png'},
+
+                    {title: 'KOFTA DINNER', price: '$23.99', desc: '2 minced beef skewers with mild in-house specialty seasoning.', img:'./public/images/kofta.png'},
+
+                    {title: 'CHICKEN KOFTA DINNER', price: '$23.99', desc: 'Two skewers of mild ground chicken marinated in our specialty house seasoning. Includes Salad & Naan.', img:'./public/images/kofta2.png'},
+
+                    {title: 'SPICY GROUND CHICKEN', price: '$24.99', desc: '2 minced chicken skewers with spicy tandoori in-house specialty seasoning.', img:'./public/images/kofta3.png'},
+
+                    {title: 'HALF CHICKEN DINNER', price: '$26.99', desc: 'Half chicken marinated in yogurt and our specialty tandoori seasoning (spicy).', img:'./public/images/chickenbrest.png'},
+
+                    {title: 'LAMB SHANK DINNER', price: '$33.99', desc: 'Lamb shanks simmered to perfection for 4 hours. *Size varies.', img:'./public/images/halfchicken.png'},
+
+                    {title: 'CHOPAN DINNER', price: '$35.99', desc: 'Tender lamb chops marinated in our specialty seasoning and fresh herbs.', img:'./public/images/lambshank.png'},
+
+                    {title: 'SEA BASS DINNER', price: '$38.99', desc: 'Whole sea bass, oven-baked and oil-free. Served with rice, salad and bread.', img:'./public/images/seabass.png'},
+
+                    {title: 'FISH AND CHIPS', price: '$20.99', desc: 'Crispy battered haddock fillet, French fries and tartar sauce.', img:'./public/images/fishandchips.png'},
+
+                    {title: 'CHAPLEE BURGER', price: '$18.99', desc: 'Minced beef patty with fresh herbs. Combo with fries and a canned drink.', img:'./public/images/chapleeburger.png'},
+
+                    {title: 'GRILLED SALMON DINNER', price: '$29.99', desc: '6oz Atlantic salmon fillet, seasoned and oven-baked oil-free.',img:'./public/images/salmon.png'},
+
+                    {title: 'MANTU (DUMPLINGS)', price: '$22.99', desc: 'Seasoned meat and onions in a tender wrapper, topped with herby yogurt sauce.', img:'./public/images/mantu.png'},
+
+                    {title: 'CARAVAN SPECIAL', price: '$34.99', desc: 'Tender cubes of dark chicken spicy seasoned and freshly baked.', img:'./public/images/caravanspecial.png'}
+
+                ]">
+
+                    <div class="menu-card bg-white p-5 rounded-2xl flex gap-5 items-center group">
+
+                        <div class="relative overflow-hidden rounded-xl shrink-0">
+
+                            <img :src="item.img" class="w-24 h-24 object-cover transition-transform duration-500 group-hover:scale-110" :alt="item.title">
+
+                        </div>
+
+                        <div class="flex-grow">
+
+                            <div class="flex justify-between items-start">
+
+                                <h3 class="serif font-bold text-sm tracking-wide text-[#0B1C2A]" x-text="item.title"></h3>
+
+                                <span class="text-[#C2410C] font-extrabold text-sm" x-text="item.price"></span>
+
+                            </div>
+
+                            <p class="text-[12px] text-stone-500 mt-2 leading-relaxed" x-text="item.desc"></p>
+
+                        </div>
+
+                    </div>
+
+                </template>
+
+            </div>
+
+        </section>
+
+
+
+        <section x-show="activeSection === 'platters'" x-cloak x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-x-10">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <div class="menu-card bg-white p-8 rounded-3xl border-l-8 border-[#C2410C]">
+
+                    <div class="flex justify-between items-center mb-6">
+
+                        <h3 class="serif text-2xl font-bold">Value Platter</h3>
+
+                        <span class="bg-[#FDF7E7] text-[#C2410C] text-[10px] font-black px-3 py-1 rounded-full border border-[#C2410C]/20">FEEDS 2-3</span>
+
+                    </div>
+
+                    <p class="text-sm text-stone-600 leading-relaxed">1 Chicken Skewer, 1 French Fries, 1 Afghani Salad, 2 Kofta Skewers, 2 Sides of Rice, 2 Naans</p>
+
+                </div>
+
+                
+
+                <div class="menu-card bg-white p-8 rounded-3xl border-l-8 border-[#C2410C]">
+
+                    <div class="flex justify-between items-center mb-6">
+
+                        <h3 class="serif text-2xl font-bold">Max Platter</h3>
+
+                        <span class="bg-[#FDF7E7] text-[#C2410C] text-[10px] font-black px-3 py-1 rounded-full border border-[#C2410C]/20">FEEDS 5</span>
+
+                    </div>
+
+                    <p class="text-sm text-stone-600 leading-relaxed">1 Chicken Skewer, 1 French Fries, 1 Afghani Salad, 1 Tandoori Skewer, 1 Chicken Kofta Skewer, 2 Kofta Skewers, 2 Sides of Rice, 4 Naans</p>
+
+                </div>
+
+
+
+                <div class="menu-card bg-white p-8 rounded-3xl border-l-8 border-[#C2410C]">
+
+                    <div class="flex justify-between items-center mb-6">
+
+                        <h3 class="serif text-2xl font-bold">Family Platter</h3>
+
+                        <span class="bg-[#FDF7E7] text-[#C2410C] text-[10px] font-black px-3 py-1 rounded-full border border-[#C2410C]/20">FEEDS 5</span>
+
+                    </div>
+
+                    <p class="text-sm text-stone-600 leading-relaxed">1 Whole Chicken, 1 French Fries, 1 Afghani Salad, 2 Chaplee Pieces, 2 Sides of Rice, 4 Naans</p>
+
+                </div>
+
+
+
+                <div class="bg-[#0B1C2A] text-white p-10 rounded-3xl relative overflow-hidden ring-8 ring-[#C2410C]/10 shadow-2xl">
+
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[#C2410C] opacity-10 rounded-full -mr-16 -mt-16"></div>
+
+                    <div class="relative z-10">
+
+                        <div class="flex justify-between items-center mb-6">
+
+                            <h3 class="serif text-3xl font-bold text-[#FDF7E7]">Ultimate Platter</h3>
+
+                            <span class="bg-[#C2410C] text-white text-[11px] font-black px-4 py-1 rounded-full shadow-lg">FEEDS 10</span>
+
+                        </div>
+
+                        <p class="text-base text-stone-300 italic mb-4 leading-relaxed font-light">
+
+                            2 Chicken Skewers, 2 Tandoori Skewers, 5 Chicken Kofta Skewers, 5 Kofta Skewers, 5 Naans, 3 Sides of Rice, 1 French Fries, 1 Large Afghani Salad, 1 Hummus
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section x-show="activeSection === 'wraps'" x-cloak x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-10">
+
+            <div class="bg-white rounded-[2rem] p-10 shadow-sm border border-stone-100">
+
+                <div class="text-center mb-12">
+
+                    <span class="text-[#C2410C] font-black uppercase tracking-[0.3em] text-[10px] border-b-2 border-[#C2410C] pb-2">Signature Hand-Rolled Wraps</span>
+
+                    <p class="mt-6 text-stone-500 text-sm italic">Wrapped in fresh clay-oven naan with house-made garlic & mint yogurt sauces</p>
+
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <template x-for="wrap in ['Chicken Wrap', 'Beef Tikka Wrap', 'Chaplee Wrap (Spicy)', 'Kofta Wrap', 'Veggie Wrap', 'Tandoori Wrap', 'Chicken Kofta Wrap', 'Chicken Curry Wrap', 'Haddock Wrap (Breaded)', 'Tilapia Wrap (7-9oz)', 'Tandoori Tilapia Wrap']">
+
+                        <div class="flex items-center p-4 rounded-2xl hover:bg-[#FDF7E7] transition-all duration-300 group cursor-default border border-transparent hover:border-[#C2410C]/20">
+
+                            <div class="w-2 h-2 rounded-full bg-[#C2410C] mr-4 shadow-[0_0_8px_rgba(194,65,12,0.4)] group-hover:scale-150 transition-transform"></div>
+
+                            <span class="serif text-base font-bold text-[#0B1C2A]" x-text="wrap"></span>
+
+                        </div>
+
+                    </template>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section x-show="activeSection === 'others'" x-cloak x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 scale-105" class="space-y-12">
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <div class="space-y-8">
+
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
+
+                        <h3 class="serif text-xl font-bold mb-6 text-[#0B1C2A] flex items-center">
+
+                            <span class="w-8 h-px bg-[#C2410C] mr-3"></span> Caravan Kids
+
+                        </h3>
+
+                        <ul class="text-sm space-y-4 text-stone-600">
+
+                            <li class="flex justify-between items-center font-medium"><span>Homemade Beef Burger</span> <span class="h-px flex-grow mx-4 bg-stone-100"></span></li>
+
+                            <li class="flex justify-between items-center font-medium"><span>Homemade Chicken Burger</span> <span class="h-px flex-grow mx-4 bg-stone-100"></span></li>
+
+                            <li class="flex justify-between items-center font-medium"><span>Chicken Nuggets <small class="opacity-50">(6 pcs)</small></span> <span class="h-px flex-grow mx-4 bg-stone-100"></span></li>
+
+                            <li class="flex justify-between items-center font-medium"><span>Kofta Skewer</span> <span class="h-px flex-grow mx-4 bg-stone-100"></span></li>
+
+                            <li class="flex justify-between items-center font-medium"><span>Chicken Strips <small class="opacity-50">(5 pcs)</small></span> <span class="h-px flex-grow mx-4 bg-stone-100"></span></li>
+
+                        </ul>
+
+                    </div>
+
+
+
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
+
+                        <h3 class="serif text-xl font-bold mb-6 text-[#0B1C2A] flex items-center">
+
+                            <span class="w-8 h-px bg-[#C2410C] mr-3"></span> Fresh Salads
+
+                        </h3>
+
+                        <ul class="text-sm space-y-4 text-stone-600 font-medium">
+
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-[#C2410C] mr-3"></span> Afghani Salad</li>
+
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-[#C2410C] mr-3"></span> Greek Salad</li>
+
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-[#C2410C] mr-3"></span> Caesar Salad</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="bg-[#0B1C2A] text-white p-8 rounded-3xl lg:col-span-1 shadow-2xl relative">
+
+                    <h3 class="serif text-2xl font-bold mb-8 text-[#C2410C]">Authentic Sides</h3>
+
+                    <div class="grid grid-cols-2 gap-4 text-[10px] font-bold uppercase tracking-widest">
+
+                        <template x-for="side in ['Hummus', 'French Fries', 'Boulagnee', 'Chicken Curry', 'Kabile Rice', 'Naan', 'Keema Kofta', 'Rice', 'Whole Chicken', 'Yogurt', 'Okra']">
+
+                            <span class="p-3 border border-white/10 rounded-xl text-center hover:bg-[#C2410C] hover:border-[#C2410C] transition-all duration-300 cursor-default" x-text="side"></span>
+
+                        </template>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
+
+                    <h3 class="serif text-xl font-bold mb-8 text-[#0B1C2A] flex items-center">
+
+                        <span class="w-8 h-px bg-[#C2410C] mr-3"></span> Drinks & Treats
+
+                    </h3>
+
+                    <div class="space-y-8">
+
+                        <div>
+
+                            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-[#C2410C] mb-3">Sweet Endings</p>
+
+                            <p class="text-base font-bold text-[#0B1C2A]">Firnee, Mango Pudding</p>
+
+                        </div>
+
+                        <div class="space-y-4">
+
+                            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-[#C2410C] mb-3">Beverages</p>
+
+                            <div class="text-sm space-y-3 font-medium text-stone-600">
+
+                                <p class="flex justify-between border-b border-stone-50 pb-1"><span>Tea <small class="text-stone-400 font-normal">(Cup/Pot)</small></span> <span class="text-[10px] opacity-60">GRN/BLK/FLAV</span></p>
+
+                                <p class="flex justify-between border-b border-stone-50 pb-1"><span>Mango Juice</span></p>
+
+                                <p class="flex justify-between border-b border-stone-50 pb-1"><span>Dough <small class="text-stone-400 font-normal">(Yogurt Drink)</small></span></p>
+
+                                <p class="flex justify-between border-b border-stone-50 pb-1"><span>Brewed Coffee</span></p>
+
+                                <p class="flex justify-between"><span>Bottled Beverages / Pop</span></p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+   
+
+</main>
+
+
+
+<!-- menu end -->
+
+
+
+<!-- gallery -->
+<!-- <div class="bg-[#001528] py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+      
+      <h2 class="text-4xl md:text-5xl font-[taviraj] text-[#FFF4DE] text-center mb-12 tracking-wide">
+        Follow Us
+      </h2>
+  
+      <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-12">
+        
+        <div class="overflow-hidden group cursor-pointer aspect-square">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" 
+               alt="Cake" 
+               class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110">
+        </div>
+  
+        <div class="overflow-hidden group cursor-pointer aspect-square">
+          <img src="https://images.unsplash.com/photo-1555244162-803834f70033" 
+               alt="Buffet" 
+               class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110">
+        </div>
+  
+        <div class="overflow-hidden group cursor-pointer aspect-square">
+          <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330" 
+               alt="Table Setting" 
+               class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110">
+        </div>
+  
+        <div class="overflow-hidden group cursor-pointer aspect-square">
+          <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d" 
+               alt="Dessert" 
+               class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110">
+        </div>
+  
+        <div class="overflow-hidden group cursor-pointer aspect-square">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" 
+               alt="Main Dish" 
+               class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110">
+        </div>
+  
+        <div class="overflow-hidden group cursor-pointer aspect-square">
+          <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d" 
+               alt="Drink" 
+               class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110">
+        </div>
+  
+      </div>
+    </div>
+  </div> -->
+<!-- gallery end -->
+
+
+
+<!-- footer -->
+
+<footer class="bg-[#FFF4DE] font-serif text-[#001524] py-16 px-6 sm:px-12 lg:px-24 border-t border-[#001524]/10">
+  <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 mb-16">
+          <div class="max-w-xl">
+              <span class="italic text-2xl font-[myfont] font-bold block mb-2">It was a memorable</span>
+              <h2 class="text-4xl md:text-5xl lg:text-6xl leading-tight font-medium">
+                Excellence in every bite
+              </h2>
+          </div>
+          
+          <div class="w-full lg:w-auto min-w-[320px] md:min-w-[450px] flex items-center border border-[#001524] rounded-full px-6 py-4 focus-within:ring-1 focus-within:ring-[#001524]">
+              <input type="email" placeholder="Email address" class="bg-transparent flex-grow outline-none text-sm placeholder-[#001524]/50" />
+              <button class="text-sm font-bold uppercase tracking-wider ml-4 whitespace-nowrap">Subscribe</button>
+          </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-sm lg:text-base mb-16">
+          
+          <div class="space-y-6 font-semibold font-['Taviraj']">
+              <h3 class="font-bold text-lg">Address</h3>
+              <p class="leading-loose ">
+                547 Steeles Ave E,
+                Brampton, ON L6W 4S2</p>
+              <p class="leading-loose ">
+                12270 Yonge St Unit A-2,
+                Richmond Hill L4E 0W5</p>
+          </div>
+
+          <div class="space-y-6">
+              <h3 class="font-bold text-lg">Opening hours</h3>
+              <ul class="space-y-3 opacity-80">
+                  <li class="flex justify-between"><span>Monday to Thursday:</span> <span>11.00AM – 10:30AM</span></li>
+                  <li class="flex justify-between"><span>Friday & Saturday:</span> <span>11.00PM – 11:00PM</span></li>
+                  <!-- <li class="flex justify-between"><span>Dinner:</span> <span>08.00AM – 11:00PM</span></li> -->
+              </ul>
+          </div>
+
+          <div class="space-y-6">
+              <h3 class="font-bold text-lg">Let's connect</h3>
+              <ul class="space-y-3 font-sans ">
+                  <li>(905) 497-3876</li>
+                  <li>(905) 497-0497</li>
+                  <!-- <li class="pt-4"><a href="mailto:restaurants@mail.com" class="underline decoration-1 underline-offset-4">restaurants@mail.com</a></li> -->
+              </ul>
+          </div>
+
+          <div class="space-y-6">
+              <h3 class="font-bold text-lg"> Order Now</h3>
+              <p class="opacity-80">Place your order. Let's try unforgettable meal!</p>
+              <button class="flex items-center gap-3 bg-[#001524] text-white px-8 py-4 rounded-full hover:bg-opacity-90 transition-all">
+                  <span>Order Now</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+              </button>
+          </div>
+      </div>
+
+      <div id="custom-text-area" class="border-t border-[#001524]/10 pt-8 mt-8">
+          </div>
+      
+  </div>
+</footer>
+
+<!-- footer end -->
+
+
+
+
+
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
